@@ -6,9 +6,9 @@ class LoginController {
     this.User = User;
   }
 
-  async excute(req, res) {
+  async execute(req, res) {
     try {
-      const user = await this.User.findOne({ email: req.body.email });
+      const user = await this.User.findOne({ username: req.body.username });
       !user && res.status(404).json("user not found");
 
       const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);

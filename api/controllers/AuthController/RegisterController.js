@@ -6,7 +6,7 @@ class RegisterController {
   }
 
   async execute(req, res) {
-    const newUser = this.User({
+    const newUser = new this.User({
       username: req.body.username,
       email: req.body.email,
       password: CryptoJS.AES.encrypt(
@@ -16,9 +16,9 @@ class RegisterController {
     });
     try {
       const user = await newUser.save();
-      req.status(201).json(user);
+      res.status(201).json(user);
     } catch (error) {
-      req.status(500).json(error);
+      res.status(500).json(error);
     }
   }
 }

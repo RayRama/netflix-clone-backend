@@ -20,17 +20,17 @@ app.use(express.json());
 
 // Routes
 const authRoute = require("./routes/auth");
-const userRoute = require("./routes/user");
-const listRoute = require("./routes/list");
-const movieRoute = require("./routes/movie");
+const userRoute = require("./routes/users");
+const listRoute = require("./routes/lists");
+// const movieRoute = require("./routes/movie");
 // const seriesRoute = require('./routes/series');
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/lists", listRoute);
-app.use("/api/movies", movieRoute);
+// app.use("/api/movies", movieRoute);
 // app.use('/api/series', seriesRoute);
 
-app.listen(8800, () => {
+app.listen(8080, () => {
   console.log("Backend server is running!");
 });
