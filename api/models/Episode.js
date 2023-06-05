@@ -13,16 +13,16 @@ const EpisodeSchema = new mongoose.Schema(
       min: 3,
       max: 20,
     },
-    episodeNumber: {
-      type: Number,
-      required: true,
-    },
     seasonNumber: {
       type: Number,
       required: true,
     },
+    episodeNumber: {
+      type: Number,
+      required: true,
+    },
     releaseDate: {
-      type: Date,
+      type: String,
       required: true,
     },
   },

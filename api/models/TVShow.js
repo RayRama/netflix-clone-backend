@@ -16,11 +16,19 @@ const TVShowSchema = new mongoose.Schema(
     rating: {
       type: String,
     },
+    status: {
+      type: String,
+      default: null,
+    },
     cast: {
       type: Array,
     },
     director: {
       type: String,
+    },
+    creator: {
+      type: String,
+      default: null,
     },
     year: {
       type: String,

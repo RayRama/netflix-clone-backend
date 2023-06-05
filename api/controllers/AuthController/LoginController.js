@@ -9,13 +9,14 @@ class LoginController {
   async execute(req, res) {
     try {
       const user = await this.User.findOne({ username: req.body.username });
-      !user && res.status(404).json("user not found");
+      if (!user)
+        return res.status(401).json("Username or password is incorrect");
 
       const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
       const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
 
-      originalPassword !== req.body.password &&
-        res.status(401).json("wrong password");
+      if (originalPassword !== req.body.password)
+        return res.status(401).json("Username or password is incorrect");
 
       const accessToken = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
