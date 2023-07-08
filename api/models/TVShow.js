@@ -34,7 +34,7 @@ const TVShowSchema = new mongoose.Schema(
       type: String,
     },
     duration: {
-      type: String,
+      type: Number,
     },
     seasons: {
       type: String,
