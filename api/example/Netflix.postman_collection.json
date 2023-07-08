@@ -1,0 +1,476 @@
+{
+    "info": {
+        "_postman_id": "2a1eb6a7-8686-4454-97b9-ca949e0c20b8",
+        "name": "Netflix",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "register",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/auth/register",
+                            "path": [
+                                "api",
+                                "auth",
+                                "register"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"username\": \"user1\",\n  \"email\": \"user1@gmail.com\",\n  \"password\": \"123123123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"username\" : \"RayRama\",\n  \"password\" : \"12345678\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "List",
+            "item": [
+                {
+                    "name": "Create",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/lists/",
+                            "path": [
+                                "api",
+                                "lists"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk1NjYzNywiZXhwIjoxNjg2Mzg4NjM3fQ.YVRawdN7YtbZq9S5IjS4OjQMTyqna5hEj-HlCNkDJ74"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"title\" : \"Anime Popular\",\n  \"type\" : \"tvshow\",\n  \"genre\" : \"anime\",\n  \"content\" : [\n    \"64790bc75c9d56ec8a928add\",\n    \"647919b41e5b0696ab5e126d\",\n    \"647910791e5b0696ab5e126b\"\n  ]\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get all list",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8080/api/lists",
+                            "path": [
+                                "api",
+                                "lists"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk1NjYzNywiZXhwIjoxNjg2Mzg4NjM3fQ.YVRawdN7YtbZq9S5IjS4OjQMTyqna5hEj-HlCNkDJ74"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TVShow",
+            "item": [
+                {
+                    "name": "Create TVShow",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/tvshows",
+                            "path": [
+                                "api",
+                                "tvshows"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTI3MDE3OCwiZXhwIjoxNjg1NzAyMTc4fQ.VZ3tzpUD-4_2HXS_4pNBVycS2G8EeWXNAU21fJqMssQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\r\n  \"title\": \"One Piece\",\r\n  \"desc\": \"Monkey D. Luffy and his pirate crew, the Straw Hat Pirates, embark on an adventurous journey to find the ultimate treasure, One Piece, and become the Pirate King.\",\r\n  \"genre\": \"Action, Adventure, Comedy, Drama\",\r\n  \"rating\": \"8.8\",\r\n  \"status\": \"Currently Airing\",\r\n  \"cast\": [\"Mayumi Tanaka\", \"Akemi Okamura\", \"Kazuya Nakai\", \"Kappei Yamaguchi, Hiroaki Hirata, Yuriko Yamaguchi, Ikue Ootani, Cho, Kazuki Yao, Daisuke Gouri\"],\r\n  \"director\": \"Kōnosuke Uda\",\r\n  \"year\": \"1999\",\r\n  \"duration\": \"24 minutes\",\r\n  \"seasons\": \"1\",\r\n  \"creator\": \"Eiichiro Oda\",\r\n  \"poster\": \"https://m.media-amazon.com/images/M/MV5BODcwNWE3OTMtMDc3MS00NDFjLWE1OTAtNDU3NjgxODMxY2UyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg\"\r\n}\r\n"
+                        }
+                    }
+                },
+                {
+                    "name": "Update TVShow",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:8080/api/tvshows/64790bc75c9d56ec8a928add",
+                            "path": [
+                                "api",
+                                "tvshows",
+                                "64790bc75c9d56ec8a928add"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTI3MDE3OCwiZXhwIjoxNjg1NzAyMTc4fQ.VZ3tzpUD-4_2HXS_4pNBVycS2G8EeWXNAU21fJqMssQ"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"status\": \"Finished Airing\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get all tvshows",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/tvshows/",
+                            "path": [
+                                "api",
+                                "tvshows"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk1NjYzNywiZXhwIjoxNjg2Mzg4NjM3fQ.YVRawdN7YtbZq9S5IjS4OjQMTyqna5hEj-HlCNkDJ74"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Find tvshow",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/tvshows/find/64790bc75c9d56ec8a928add",
+                            "path": [
+                                "api",
+                                "tvshows",
+                                "find",
+                                "64790bc75c9d56ec8a928add"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk1NjYzNywiZXhwIjoxNjg2Mzg4NjM3fQ.YVRawdN7YtbZq9S5IjS4OjQMTyqna5hEj-HlCNkDJ74"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Movie",
+            "item": [
+                {
+                    "name": "Create Movie",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/movies",
+                            "path": [
+                                "api",
+                                "movies"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NjgzNTE4MCwiZXhwIjoxNjg3MjY3MTgwfQ.vH-Sh2zh_ay5zuMQlFFYLkgJ3T2grPCUyfwn8hDmbJk"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": " {\n      \"title\": \"Fight Club 4\",\n      \"desc\": \"An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.\",\n      \"genre\": \"Drama\",\n      \"rating\": \"18+\",\n      \"cast\": [\"Brad Pitt\", \"Edward Norton\", \"Helena Bonham Carter\"],\n      \"director\": \"David Fincher\",\n      \"year\": 1999,\n      \"duration\": 139,\n      \"poster\": \"https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg\"\n    }"
+                        }
+                    }
+                },
+                {
+                    "name": "Find movie",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/movies/find/64735906ebfb29b82ce13d33",
+                            "path": [
+                                "api",
+                                "movies",
+                                "find",
+                                "64735906ebfb29b82ce13d33"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTQwNzIxMSwiZXhwIjoxNjg1ODM5MjExfQ.K4hrBX1lLptnUXBRGy1cXSseZ6TlGUDNHlwGr3FWX7M"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get random movie",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/movies/random",
+                            "path": [
+                                "api",
+                                "movies",
+                                "random"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk1NjYzNywiZXhwIjoxNjg2Mzg4NjM3fQ.YVRawdN7YtbZq9S5IjS4OjQMTyqna5hEj-HlCNkDJ74"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get all movies",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/movies/",
+                            "path": [
+                                "api",
+                                "movies"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4ODc4MDg5MywiZXhwIjoxNjg5MjEyODkzfQ.07MBeUT8TpNaRTWBwv3QJ7l4I46VoN5pDRaxSRbMEAo"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "Get User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/users/find/6478614ed8bb584e86261ee7",
+                            "path": [
+                                "api",
+                                "users",
+                                "find",
+                                "6478614ed8bb584e86261ee7"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTYxMTA5NiwiZXhwIjoxNjg2MDQzMDk2fQ.fRwOvSDMUV0PvF5Zk0rycE9wRm1el2ik17DgYg3GKCc",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Edit User",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:8080/api/users/647863024ba981f5bbde82d4",
+                            "path": [
+                                "api",
+                                "users",
+                                "647863024ba981f5bbde82d4"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTYxMTA5NiwiZXhwIjoxNjg2MDQzMDk2fQ.fRwOvSDMUV0PvF5Zk0rycE9wRm1el2ik17DgYg3GKCc"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"rayramadita11@email.com\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/users?new=true",
+                            "query": [
+                                {
+                                    "key": "new",
+                                    "value": "true"
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "api",
+                                "users"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTYxMTA5NiwiZXhwIjoxNjg2MDQzMDk2fQ.fRwOvSDMUV0PvF5Zk0rycE9wRm1el2ik17DgYg3GKCc"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Get Users Stats",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/users/stats",
+                            "path": [
+                                "api",
+                                "users",
+                                "stats"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTQzNzk2NiwiZXhwIjoxNjg1ODY5OTY2fQ.3_nmEmNjZfjBrbDl7h8_3I-Hay-UZINWISZ5a6p2BsE",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
