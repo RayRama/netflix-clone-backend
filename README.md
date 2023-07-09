@@ -22,7 +22,13 @@ You can check the package.json files for more information in each folder.
 .
 ├── README.md (This page)
 ├── api # API
-|  ├── controllers # Controllers for all logic
+|  ├── controllers # Controllers for all logic crud operations
+|  |  ├── AuthController # Controller for login and register
+|  |  ├── EpisodeController # Controller for episode crud operations
+|  |  ├── ListController # Controller for list crud operations
+|  |  ├── MovieController # Controller for movie crud operations
+|  |  ├── TVShowController # Controller for series or tvshow crud operations
+|  |  ├── UserController # Controller for user crud operations
 |  ├── models # Models for all schemas
 |  ├── routes # Routes for all crud operations
 ├── dashboard # Client
@@ -65,6 +71,10 @@ For the dashboard folder:
 yarn start
 ```
 
-## API Collection
+## API Documentation
 
-Download [this](api/example/Netflix.postman_collection.json) file and import it to Postman to get the API collection.
+You can check the API documentation [here](https://documenter.getpostman.com/view/17124662/2s93zH1yPv).
+
+OR
+
+Download [this](api/example/Netflix.postman_collection-v2.json) file and import it to Postman to get the API collection.
