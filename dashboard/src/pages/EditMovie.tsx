@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "../helper/api/axios";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditMovie() {
   const [data, setData] = React.useState<any>({});
@@ -9,6 +9,7 @@ export default function EditMovie() {
   const [loading, setLoading] = React.useState<boolean>(false);
   const token = localStorage.getItem("token") || "{}";
   const params = useParams();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     async function getData() {
@@ -22,8 +23,6 @@ export default function EditMovie() {
           .then((res) => {
             setData(res.data);
             setLoading(false);
-            console.log(res.data);
-            console.log(data.title);
           })
           .catch((err) => {
             toast.error("Gagal Mengambil Data, Silahkan Login Kembali", {
@@ -54,6 +53,7 @@ export default function EditMovie() {
         toast.success("Berhasil Mengubah Data", {
           icon: "✅",
         });
+        navigate("/movies");
       })
       .catch((err) => {
         setLoading(false);
@@ -148,6 +148,39 @@ export default function EditMovie() {
                 onClick={() => handleUpdate()}
               >
                 Save
+              </button>
+              {/* Delete movie with confirmation dialog */}
+              <button
+                className={`bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mt-2 ${
+                  loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      "Are you sure you wish to delete this item?"
+                    ) &&
+                    !loading
+                  )
+                    axios
+                      .delete(`/movies/${params.movieId}`, {
+                        headers: {
+                          token: `Bearer ${token}`,
+                        },
+                      })
+                      .then((res) => {
+                        toast.success("Berhasil Menghapus Data", {
+                          icon: "✅",
+                        });
+                        navigate("/movies");
+                      })
+                      .catch((err) => {
+                        toast.error("Gagal Menghapus Data", {
+                          icon: "❌",
+                        });
+                      });
+                }}
+              >
+                Delete
               </button>
             </div>
           </div>
