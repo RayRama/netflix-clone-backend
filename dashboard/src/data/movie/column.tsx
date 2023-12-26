@@ -6,6 +6,7 @@ import { ColumnDef } from "@tanstack/react-table";
 export type IMovie = {
   _id: string;
   title: string;
+  desc: string;
   genre: string;
   rating: string;
   year: string;
@@ -17,6 +18,10 @@ export const columns: ColumnDef<IMovie>[] = [
   {
     accessorKey: "title",
     header: "Title",
+  },
+  {
+    accessorKey: "desc",
+    header: "Description",
   },
   {
     accessorKey: "genre",
@@ -45,7 +50,7 @@ export const columns: ColumnDef<IMovie>[] = [
       const movie = row.original;
       return (
         <div>
-          <Link href={`/movies/${movie._id}`}>Edit</Link>
+          <Link href={`/movies/editmovie/${movie._id}`}>Edit</Link>
         </div>
       );
     },

@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/movies" element={<Movie />}>
             {/* nested route */}
             <Route path="addmovie" element={<AddMovie />} />
-            <Route path="editmovie" element={<EditMovie />} />
+            <Route path="editmovie/:movieId" element={<EditMovie />} />
             <Route path=":movieId" element={<DetailMovie />} />
           </Route>
 

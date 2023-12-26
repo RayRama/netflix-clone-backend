@@ -10,32 +10,33 @@ export default function Movie() {
   const [loading, setLoading] = React.useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const token = localStorage.getItem("token") || "{}";
+  const user = localStorage.getItem("user") || "{}";
 
   React.useEffect(() => {
+    // console.log(token);
     setLoading(true);
     async function getData() {
       try {
         await axios
           .get("/movies", {
             headers: {
-              token: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzMyNmVhNjEyNGQ3ODIwOTMyMzQxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4ODc4MDg5MywiZXhwIjoxNjg5MjEyODkzfQ.07MBeUT8TpNaRTWBwv3QJ7l4I46VoN5pDRaxSRbMEAo`,
+              token: `Bearer ${token}`,
             },
           })
           .then((res) => {
             setData(res.data);
             setLoading(false);
-            console.log(res.data);
+            // console.log(res.data);
           })
           .catch((err) => {
-            toast.error("Gagal Mengambil Data", {
+            toast.error("Gagal Mengambil Data, Silahkan Login Kembali", {
               icon: "❌",
             });
             setLoading(false);
           });
       } catch (error) {
-        toast.error("Gagal Mengambil Data", {
+        toast.error("Gagal Mengambil Data, Silahkan Login Kembali", {
           icon: "❌",
         });
         setLoading(false);
@@ -47,6 +48,7 @@ export default function Movie() {
 
   return (
     <div className="flex flex-col md:p-10 p-5 md:mt-0 mt-20">
+      Setelah update, harap refresh browser anda
       <Toaster reverseOrder={false} position="top-center" />
       {location.pathname === "/movies" ? (
         <>
