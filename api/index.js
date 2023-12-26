@@ -38,3 +38,5 @@ app.use("/api/episodes", episodeRoute);
 app.listen(8080, () => {
   console.log("Backend server is running!");
 });
+
+module.exports = app;
