@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const verify = require("../verifyToken");
-const ListController = require("../controllers/listController");
+const ListController = require("../controllers/ListController");
 
 const listController = new ListController();
 
